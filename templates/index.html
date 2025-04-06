@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <span>
+      <img id = 'img' src="{{ url_for('static', filename='img/eu.jpeg') }}" alt="Uma foto minha" />
+      <ul>
+        <li>
+          <a class="a" href="#">home</a>
+        </li>
+        <li>
+          <a class="a" href="#">sobre mim</a>
+        </li>
+        <li>
+          <a class="a" href="#projetos">projeto</a>
+        </li>
+        <li>
+          <a class="a" href="#contato">contato</a>
+        </li>
+      </ul>
+    </span>
+  </header>
+
+  <section class="section">
+    <h2>Sobre Mim</h2>
+    <p>Sou Gabriel, um desenvolvedor apaixonado por tecnologia, sempre em busca de aprendizado contínuo e desafios que contribuam para meu crescimento profissional.</p>
+    <br>
+    <h3>Cursos</h3>
+    <p>Etec - 3 anos (completo)</p>
+    <p>Fatec - cursando 1-semestre</p>
+    <p>Competências: Python, HTML, CSS, JavaScript, TypeScript, SQL, Git</p>
+  </section>
+
+  <section class="box">
+    <h2 id="projetos">Projetos</h2>
+    <br>
+    <div class="project">
+      <h3>site de alugel de casas de viagem</h3>
+      <p class="desc">Site de alugel</p>
+      <br>
+      <p class="desc">e um site de aluguel de casa para viagens</p>
+      <br>
+      <p class="desc">Tecnologia utilizada : HTML, CSS, JavaScript, php, SQL </p>
+      <br>
+      <p class="desc">Framework: Bootstrap</p>
+      
+      <div class="carousel">
+        <input type="radio" name="carousel" id="slide1" checked>
+        <input type="radio" name="carousel" id="slide2">
+        <input type="radio" name="carousel" id="slide3">
+        <div class="slides">
+          <div class="slide">
+            <img src="{{ url_for('static', filename='img/carousel.png') }}" alt="Slide 1">
+          </div>
+          <div class="slide">
+            <img src="{{ url_for('static', filename='img/casa.png') }}" alt="Slide 2">
+          </div>
+          <div class="slide">
+            <img src="{{ url_for('static', filename='img/registro.png') }}" alt="Slide 3">
+          </div>
+        </div>
+        <div class="navigation">
+          <label for="slide1"></label>
+          <label for="slide2"></label>
+          <label for="slide3"></label>
+        </div>
+      </div>      
+      <br>
+      <a href="https://github.com/gabsact4/gabriel-lazaro/tree/main/src/php/php" target="_blank">Ver no GitHub</a>
+    </div>
+  </section>
+
+  <section class="box">
+    <h2 id="contato">Contato</h2>
+    <p>Email: <a href="gabrielhlazaro2022@gmail.com">gabrielhlazaro2022@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/gabsact4" target="_blank">https://github.com/gabsact4</a></p>
+  </section>
+</body>
+</html>
