@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #111 !important;
+    background-image: linear-gradient(black, #000069) !important;
     font-family: "EB Garamond", serif !important;
 }
 
@@ -315,6 +315,7 @@ body {
 }
 
 .container-circular {
+    box-shadow: 0 8px 30px rgba(0, 0, 105, 0.5);
     display: inline-flex;
     flex-wrap: wrap;
     gap: 30px;
