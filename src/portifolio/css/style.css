@@ -7,11 +7,12 @@
 }
 
 body {
-    background-image: linear-gradient(black, #000069) !important;
+    background-image: linear-gradient(black, #000069, #00007d) !important;
     font-family: "EB Garamond", serif !important;
 }
 
 #navbar {
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -146,6 +147,7 @@ body {
 }
 
 .box3 {
+    align-items: center;
     display: flexbox;
     text-align: center;
     width: 90%;
@@ -424,5 +426,110 @@ body {
   .circular-bar.mysql svg circle:nth-child(2) {
     stroke-dashoffset: calc(440 - (440 * 65) / 100);
     stroke: #000069;
+  }
+  
+  @media (max-width: 992px) {
+    .box2 {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+  
+    .imagem img {
+      width: 200px;
+    }
+  
+    .texto {
+      max-width: 100%;
+    }
+  
+    .nav-links {
+      gap: 10px;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  
+    #navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      display: none;
+    }
+  
+    .lgit {
+      margin: 10px auto;
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .container-circular {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 18px;
+    }
+  
+    .link {
+      font-size: 16px;
+    }
+  
+    .box, .box2, .box3, .box4, .box5 {
+      width: 95%;
+      padding: 15px;
+    }
+  
+    .carousel-item {
+      height: auto;
+    }
+  
+    .carousel-inner img {
+      max-height: 250px;
+    }
+  
+    .circular-bar {
+      width: 90%;
+      height: auto;
+    }
+  
+    .percent {
+      width: 120px;
+      height: 120px;
+    }
+  
+    svg {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .link {
+      font-size: 14px;
+    }
+  
+    .logo {
+      font-size: 16px;
+    }
+  
+    #img, .imagem img {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .percent .num h2 {
+      font-size: 30px;
+    }
+  
+    .percent .num h2 span {
+      font-size: 16px;
+    }
+  
+    .box4 form {
+      padding: 20px;
+    }
   }
   
