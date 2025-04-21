@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: linear-gradient(black, #000069, #00007d) !important;
+    background-image: linear-gradient(black,#191970, #000069) !important;
     font-family: "EB Garamond", serif !important;
 }
 
@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:#4F4F4F;
+    background-color:#191970 ;
     padding: 15px 30px;
 }
 
@@ -33,14 +33,14 @@ body {
 }
 
 .link {
-    color: #000069;
+    color: #00BFFF;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
 }
 
 .link:hover {
-    color: white;
+    color: #00FFFF;
 }
 
 #img {
@@ -96,7 +96,8 @@ body {
   text-align: center;
   transition: color 0.3s, transform 0.3s;
   background-color: #000; 
-  border-radius: 4px;
+  border-radius: 10px;
+  border-color: purple;
 }
 
 .lgit:hover {
@@ -112,7 +113,7 @@ body {
   justify-content: center;
   gap: 40px;
   width: 90%;
-  background-image: url('./img/back.jpg');
+  background-image: url('./img/background.gif');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -153,9 +154,9 @@ body {
     width: 90%;
     min-height: 400px;
     background-color: #111;
-    margin: 50px 0 30px 20px;
+    margin: 20px auto;
     border-radius: 10px;
-    color: #000069;
+    color:#4169E1;
     font-family: "EB Garamond", serif;
     padding: 30px;
     overflow: auto;
@@ -312,12 +313,12 @@ body {
   border-radius: 10px;
   margin: 20px auto;
   overflow: hidden;
-  border: 2px solid #000069;
+  border: 2px solid #6A5ACD;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .container-circular {
-    box-shadow: 0 8px 30px rgba(0, 0, 105, 0.5);
+    box-shadow: 0 8px 30px rgba(65, 105, 225, 0.5);
     display: inline-flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -354,7 +355,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 50px #000;
+    box-shadow: inset 0 0 50px rgba(40, 70, 150, 0.5);
   }
   
   .percent .num h2 {
@@ -398,34 +399,34 @@ body {
   
   .circular-bar.html svg circle:nth-child(2) {
     stroke-dashoffset: calc(440 - (440 * 90) / 100);
-    stroke: #000069;
+    stroke:#4169E1;
   }
   .circular-bar.css svg circle:nth-child(2) {
     stroke-dashoffset: calc(440 - (440 * 85) / 100);
-    stroke: #000069;
+    stroke: #4169E1;
   }
   .circular-bar.javascript svg circle:nth-child(2) {
     stroke-dashoffset: calc(440 - (440 * 87) / 100);
-    stroke: #000069;
+    stroke: #4169E1;
   }
   .circular-bar.python svg circle:nth-child(2) {
     stroke-dashoffset: calc(440 - (440 * 65) / 100);
-    stroke: #000069;
+    stroke: #4169E1;
   }
 
   .circular-bar.cs svg circle:nth-child(2) {
     stroke-dashoffset: calc(440 - (440 * 65) / 100);
-    stroke: #000069;
+    stroke: #4169E1;
   }
 
   .circular-bar.cmm svg circle:nth-child(2) {
     stroke-dashoffset: calc(440 - (440 * 65) / 100);
-    stroke: #000069;
+    stroke: #4169E1;
   }
 
   .circular-bar.mysql svg circle:nth-child(2) {
     stroke-dashoffset: calc(440 - (440 * 65) / 100);
-    stroke: #000069;
+    stroke: #4169E1;
   }
   
   @media (max-width: 992px) {
@@ -434,6 +435,8 @@ body {
       gap: 20px;
       padding: 20px;
       text-align: center;
+      align-items: center; 
+      justify-content: center; 
     }
   
     .imagem img {
@@ -447,12 +450,12 @@ body {
     .nav-links {
       gap: 10px;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: center; /* centraliza os links */
     }
   
     #navbar {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center; /* centraliza o conteúdo do navbar */
       display: none;
     }
   
@@ -465,71 +468,6 @@ body {
     .container-circular {
       flex-direction: column;
       align-items: center;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .logo {
-      font-size: 18px;
-    }
-  
-    .link {
-      font-size: 16px;
-    }
-  
-    .box, .box2, .box3, .box4, .box5 {
-      width: 95%;
-      padding: 15px;
-    }
-  
-    .carousel-item {
-      height: auto;
-    }
-  
-    .carousel-inner img {
-      max-height: 250px;
-    }
-  
-    .circular-bar {
-      width: 90%;
-      height: auto;
-    }
-  
-    .percent {
-      width: 120px;
-      height: 120px;
-    }
-  
-    svg {
-      width: 120px;
-      height: 120px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .link {
-      font-size: 14px;
-    }
-  
-    .logo {
-      font-size: 16px;
-    }
-  
-    #img, .imagem img {
-      width: 150px;
-      height: 150px;
-    }
-  
-    .percent .num h2 {
-      font-size: 30px;
-    }
-  
-    .percent .num h2 span {
-      font-size: 16px;
-    }
-  
-    .box4 form {
-      padding: 20px;
     }
   }
   
