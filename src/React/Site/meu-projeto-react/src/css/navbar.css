@@ -1,0 +1,22 @@
+nav{
+    background-color: #FF0000;
+    color: white;
+    flex-direction: row;
+    width: 100%;
+    height: 90%;
+    border-radius: 15px;
+    border: solid 5px #fff;
+}
+
+Link {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+}
+a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+}
