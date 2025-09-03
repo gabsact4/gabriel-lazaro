@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Classificação por Idade</title>
+</head>
+<body>
+    <h1>Classificação da Idade</h1>
+    <p id="resultado"></p>
+
+    <script>
+        let idade = parseInt(prompt("Digite sua idade: "));
+
+        function IdadeVida(idade){
+            let classificacao = "";
+
+            if(idade > 0 && idade <= 14){
+                classificacao = "muleque";
+            }
+            else if(idade > 14 && idade <= 30){
+                classificacao = "Jovem";
+            }
+            else if(idade > 30 && idade <= 60){
+                classificacao = "adulto";
+            }
+            else if(idade > 60){
+                classificacao = "idoso";
+            } else {
+                classificacao = "Idade inválida.";
+            }
+
+        
+            console.log(classificacao);
+
+        
+            document.getElementById("resultado").textContent = "Classificação: " + classificacao;
+        }
+
+        IdadeVida(idade);
+    </script>
+</body>
+</html>

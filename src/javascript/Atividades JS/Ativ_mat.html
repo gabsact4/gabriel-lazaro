@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ou vai ou Raxa</title>
+</head>
+<body>
+    <h1>Resultado</h1>
+    <p id="resultado"></p>
+
+    <script>
+        let Num1 = parseInt(prompt("Digite um número:"));
+        let Sinal = prompt("Digite se é para '+' ou '-':");
+        let Num2 = parseInt(prompt("Digite sua idade:"));
+
+        function Matematica(Num1, Sinal, Num2) {
+            if (Sinal === "+") {
+                return Num1 + Num2;
+            } else if (Sinal === "-") {
+                return Num1 - Num2;
+            } else {
+                return "Operador inválido.";
+            }
+        }
+
+        const resultado = Matematica(Num1, Sinal, Num2);
+        document.getElementById("resultado").textContent = "Resultado: " + resultado;
+    </script>
+</body>
+</html>

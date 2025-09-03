@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Data por Extenso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, button {
+            font-size: 16px;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Converter data para extenso</h2>
+    
+    <label for="data">Digite uma data (dd/mm/aaaa):</label><br>
+    <input type="text" id="data" placeholder="Ex: 31/08/2012">
+    <button onclick="converterData()">Converter</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function converterData() {
+            const meses = [
+                "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+                "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+            ];
+
+            const dataInput = document.getElementById("data").value;
+            const partes = dataInput.split("/");
+
+            if (partes.length !== 3) {
+                document.getElementById("resultado").innerText = "Formato inválido. Use dd/mm/aaaa.";
+                return;
+            }
+
+            const dia = partes[0];
+            const mes = parseInt(partes[1]);
+            const ano = partes[2];
+
+            if (mes < 1 || mes > 12) {
+                document.getElementById("resultado").innerText = "Mês inválido.";
+                return;
+            }
+
+            const dataExtenso = `${dia} de ${meses[mes - 1]} de ${ano}`;
+            document.getElementById("resultado").innerText = "Data por extenso: " + dataExtenso;
+        }
+    </script>
+
+</body>
+</html>

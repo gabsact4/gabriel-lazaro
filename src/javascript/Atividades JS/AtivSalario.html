@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Folha de Pagamento - Rede Hoteleira</title>
+</head>
+<body>
+  <h1>Folha de Pagamento - Rede Hoteleira</h1>
+
+  <form id="formPagamento">
+    <label>
+      Código do funcionário:
+      <input type="number" id="codigo" min="1" required />
+    </label><br /><br />
+
+    <label>
+      Número de horas trabalhadas no mês:
+      <input type="number" id="horas" min="1" required />
+    </label><br /><br />
+
+    <label>
+      Turno de trabalho:
+      <select id="turno" required>
+        <option value="">Selecione</option>
+        <option value="M">M - Matutino</option>
+        <option value="V">V - Vespertino</option>
+        <option value="N">N - Noturno</option>
+      </select>
+    </label><br /><br />
+
+    <label>
+      Categoria do funcionário:
+      <select id="categoria" required>
+        <option value="">Selecione</option>
+        <option value="F">F - Funcionário</option>
+        <option value="G">G - Gerente</option>
+      </select>
+    </label><br /><br />
+
+    <label>
+      Valor do salário mínimo atual (R$):
+      <input type="number" id="salarioMinimo" step="0.01" min="0.01" required />
+    </label><br /><br />
+
+    <button type="submit">Calcular Salário</button>
+  </form>
+
+  <h2>Resultado:</h2>
+  <pre id="resultado"></pre>
+
+  <script>
+    document.getElementById('formPagamento').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const codigo = parseInt(document.getElementById('codigo').value);
+      const horas = parseInt(document.getElementById('horas').value);
+      const turno = document.getElementById('turno').value.toUpperCase();
+      const categoria = document.getElementById('categoria').value.toUpperCase();
+      const salarioMinimo = parseFloat(document.getElementById('salarioMinimo').value);
+
+      let valorHora;
+
+      if (categoria === 'F') {
+        switch (turno) {
+          case 'M':
+            valorHora = salarioMinimo * 0.10;
+            break;
+          case 'V':
+            valorHora = salarioMinimo * 0.15;
+            break;
+          case 'N':
+            valorHora = salarioMinimo * 0.12;
+            break;
+          default:
+            alert('Turno inválido!');
+            return;
+        }
+      } else if (categoria === 'G') {
+        switch (turno) {
+          case 'M':
+            valorHora = salarioMinimo * 0.18;
+            break;
+          case 'V':
+            valorHora = salarioMinimo * 0.20;
+            break;
+          case 'N':
+            valorHora = salarioMinimo * 0.25;
+            break;
+          default:
+            alert('Turno inválido!');
+            return;
+        }
+      } else {
+        alert('Categoria inválida!');
+        return;
+      }
+
+      const salarioInicial = horas * valorHora;
+
+      let auxAlimentacao;
+      if (salarioInicial <= 300) {
+        auxAlimentacao = salarioInicial * 0.20;
+      } else if (salarioInicial <= 600) {
+        auxAlimentacao = salarioInicial * 0.15;
+      } else {
+        auxAlimentacao = salarioInicial * 0.05;
+      }
+
+      
+      const salarioFinal = salarioInicial + auxAlimentacao;
+
+      
+      const resultadoTexto = 
+        `Código do funcionário: ${codigo}\n` +
+        `Horas trabalhadas: ${horas}\n` +
+        `Valor da hora trabalhada: R$ ${valorHora.toFixed(2)}\n` +
+        `Salário inicial: R$ ${salarioInicial.toFixed(2)}\n` +
+        `Auxílio alimentação: R$ ${auxAlimentacao.toFixed(2)}\n` +
+        `Salário final: R$ ${salarioFinal.toFixed(2)}`;
+
+      document.getElementById('resultado').textContent = resultadoTexto;
+    });
+  </script>
+</body>
+</html>

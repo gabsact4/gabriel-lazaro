@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo de Nota Final</title>
+</head>
+<body>
+    <h1>Cálculo de Nota Final</h1>
+
+    <p><strong>Nota do laboratório:</strong> 2</p>
+    <p><strong>Prova do semestre:</strong> 5</p>
+    <p><strong>Trabalho teórico:</strong> 3</p>
+
+    <p id="nota-final"></p>
+    <p id="conceito-final"></p>
+
+    <script>
+        let notalab = 2;
+        let provSemestre = 5;
+        let TrabTeorico = 3;
+
+        function notaFinal(notalab, provSemestre, TrabTeorico) {
+            return (notalab * notalab) + (provSemestre * provSemestre) + (TrabTeorico * TrabTeorico);
+        }
+
+        function aprovacao(notaFinal) {
+            if (notaFinal >= 9) {
+                return "A";
+            } else if (notaFinal >= 8 && notaFinal < 9) {
+                return "B";
+            } else if (notaFinal >= 7 && notaFinal < 8) {
+                return "C";
+            } else if (notaFinal >= 6 && notaFinal < 7) {
+                return "D";
+            } else if (notaFinal >= 5 && notaFinal < 6) {
+                return "E";
+            } else {
+                return "F";
+            }
+        }
+
+        let resultadoFinal = notaFinal(notalab, provSemestre, TrabTeorico);
+        let conceito = aprovacao(resultadoFinal);
+
+        document.getElementById("nota-final").textContent = "Nota Final: " + resultadoFinal.toFixed(2);
+        document.getElementById("conceito-final").textContent = "Conceito: " + conceito;
+    </script>
+</body>
+</html>

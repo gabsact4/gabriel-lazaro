@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cálculo de Frete Metalmecânico</title>
+</head>
+<body>
+    <h1>Cálculo de Frete</h1>
+
+    <form id="freteForm">
+        <label>
+            Distância (km):
+            <input type="number" id="distancia" min="1" required />
+        </label><br/><br/>
+
+        <label>
+            Quantidade de peças:
+            <input type="number" id="quantidade" min="1" required />
+        </label><br/><br/>
+
+        <label>
+            Região:
+            <select id="regiao" required>
+                <option value="">Selecione</option>
+                <option value="1">1 - Sudeste</option>
+                <option value="2">2 - Sul</option>
+                <option value="3">3 - Centro-Oeste</option>
+            </select>
+        </label><br/><br/>
+
+        <label>
+            Deseja rastreamento? 
+            <select id="rastreamento" required>
+                <option value="">Selecione</option>
+                <option value="S">Sim</option>
+                <option value="N">Não</option>
+            </select>
+        </label><br/><br/>
+
+        <button type="submit">Calcular Frete</button>
+    </form>
+
+    <h2>Resultado:</h2>
+    <pre id="resultado"></pre>
+
+    <script>
+        document.getElementById('freteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const distanciaKm = parseFloat(document.getElementById('distancia').value);
+            const quantidadePecas = parseInt(document.getElementById('quantidade').value);
+            const regiao = parseInt(document.getElementById('regiao').value);
+            const rastreamentoDesejado = document.getElementById('rastreamento').value.toUpperCase();
+
+            
+            const valoresBase = {
+                1: { preco: 1.20, desconto: 0.12 },  
+                2: { preco: 1.10, desconto: 0.15 },  
+                3: { preco: 1.15, desconto: 0.10 }   
+            };
+
+            if (!valoresBase[regiao]) {
+                alert("Região inválida! Selecione Sudeste (1), Sul (2) ou Centro-Oeste (3).");
+                return;
+            }
+
+            const precoBase = valoresBase[regiao].preco;
+            const desconto = valoresBase[regiao].desconto;
+
+            
+            let valorFretePecas = 0;
+            if (quantidadePecas <= 1000) {
+                valorFretePecas = quantidadePecas * precoBase;
+            } else {
+                const excesso = quantidadePecas - 1000;
+                const valorDescontado = precoBase * (1 - desconto);
+                valorFretePecas = (1000 * precoBase) + (excesso * valorDescontado);
+            }
+
+            const valorPorKm = distanciaKm * 1;
+
+            
+            const taxaRastreamento = (rastreamentoDesejado === 'S') ? 200 : 0;
+
+            
+            const totalFrete = valorFretePecas + valorPorKm + taxaRastreamento;
+
+            
+            const resultadoTexto = 
+                `Taxa do rastreamento: R$ ${taxaRastreamento.toFixed(2)}\n` +
+                `Valor do frete pelas peças: R$ ${valorFretePecas.toFixed(2)}\n` +
+                `Valor do frete por quilômetro: R$ ${valorPorKm.toFixed(2)}\n` +
+                `Total do frete: R$ ${totalFrete.toFixed(2)}`;
+
+            document.getElementById('resultado').textContent = resultadoTexto;
+        });
+    </script>
+</body>
+</html>
