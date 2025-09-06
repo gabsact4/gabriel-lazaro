@@ -1,0 +1,13 @@
+{
+  "name": "ri4",
+  "version": "1.0.0",
+  "description": "Módulo em Node.js para cadastro de empresa, clientes, endereços e telefones.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["cliente", "empresa", "telefone", "endereco", "modulo", "nodejs"],
+  "author": "Gabriel Henrique",
+  "license": "MIT"
+}
